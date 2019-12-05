@@ -43,6 +43,8 @@ public class Rectangle {
     }
 
     public int hashCode() {
-        return getWidth().hashCode() + getLength().hashCode() + getColor().hashCode();
+        return 31 * getWidth().hashCode()
+                + 31 * getLength().hashCode()
+                + 31 * getColor().hashCode();
     }
 }
