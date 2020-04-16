@@ -13,7 +13,7 @@ public class RectangleTest {
     private static final String COLOR_SECOND = "red";
 
     @Test
-    public void equalityOfRectangle() {
+    public void equalsOfRectangleOk() {
         Rectangle firstRectangle = new Rectangle(WIDTH_FIRST, LENGTH_FIRST, COLOR_FIRST);
         Rectangle secondRectangle = new Rectangle(WIDTH_SECOND, LENGTH_SECOND, COLOR_SECOND);
 
@@ -22,5 +22,39 @@ public class RectangleTest {
                         + " and second hash " + secondRectangle.hashCode()
                         + " and equals " + firstRectangle.equals(secondRectangle),
                 firstRectangle.equals(secondRectangle));
+    }
+
+    @Test
+    public void hashcodeOfRectanglesOK() {
+        Rectangle firstRectangle = new Rectangle(WIDTH_FIRST, LENGTH_FIRST, COLOR_FIRST);
+        Rectangle secondRectangle = new Rectangle(WIDTH_SECOND, LENGTH_SECOND, COLOR_SECOND);
+
+        Assert.assertEquals("Test failed with first hash "
+                        + firstRectangle.hashCode()
+                        + " and second hash " + secondRectangle.hashCode(),
+                firstRectangle.hashCode(), secondRectangle.hashCode());
+    }
+
+    @Test
+    public void equalsOfRectangleWithNullValues() {
+        Rectangle firstRectangle = new Rectangle(null, null, null);
+        Rectangle secondRectangle = new Rectangle(null, null, null);
+
+        Assert.assertTrue("Test failed with first hash "
+                        + firstRectangle.hashCode()
+                        + " and second hash " + secondRectangle.hashCode()
+                        + " and equals " + firstRectangle.equals(secondRectangle),
+                firstRectangle.equals(secondRectangle));
+    }
+
+    @Test
+    public void hashcodeOfRectangleWithNullValues() {
+        Rectangle firstRectangle = new Rectangle(null, null, null);
+        Rectangle secondRectangle = new Rectangle(null, null, null);
+
+        Assert.assertEquals("Test failed with first hash "
+                        + firstRectangle.hashCode()
+                        + " and second hash " + secondRectangle.hashCode(),
+                firstRectangle.hashCode(), secondRectangle.hashCode());
     }
 }
