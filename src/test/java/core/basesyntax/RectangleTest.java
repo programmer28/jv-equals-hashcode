@@ -92,7 +92,7 @@ public class RectangleTest {
     @Test
     public void equalsOfRectangleWidthNotOk() {
         Rectangle firstRectangle = new Rectangle(WIDTH_FIRST, LENGTH_FIRST, COLOR_FIRST);
-        Rectangle secondRectangle = new Rectangle(DIFFERENT_WIDTH, DIFFERENT_LENGTH, COLOR_SECOND);
+        Rectangle secondRectangle = new Rectangle(DIFFERENT_WIDTH, LENGTH_SECOND, COLOR_SECOND);
 
         Assert.assertNotEquals("Test failed with first hash "
                 + firstRectangle.hashCode()
@@ -103,7 +103,7 @@ public class RectangleTest {
     @Test
     public void equalsOfRectangleColorNotOk() {
         Rectangle firstRectangle = new Rectangle(WIDTH_FIRST, LENGTH_FIRST, COLOR_FIRST);
-        Rectangle secondRectangle = new Rectangle(WIDTH_FIRST, DIFFERENT_LENGTH, DIFFERENT_COLOR);
+        Rectangle secondRectangle = new Rectangle(WIDTH_FIRST, LENGTH_SECOND, DIFFERENT_COLOR);
 
         Assert.assertNotEquals("Test failed with first hash "
                 + firstRectangle.hashCode()
