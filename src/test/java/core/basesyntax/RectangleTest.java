@@ -12,6 +12,8 @@ public class RectangleTest {
     private static final Integer LENGTH_SECOND = 400;
     private static final String COLOR_SECOND = "red";
     private static final Integer DIFFERENT_LENGTH = 100;
+    private static final Integer DIFFERENT_WIDTH = 100;
+    private static final String DIFFERENT_COLOR = "black";
 
     @Test
     public void equalsOfRectangleOk() {
@@ -77,9 +79,31 @@ public class RectangleTest {
     }
 
     @Test
-    public void equalsOfRectangleNotOk() {
+    public void equalsOfRectangleLengthNotOk() {
         Rectangle firstRectangle = new Rectangle(WIDTH_FIRST, LENGTH_FIRST, COLOR_FIRST);
         Rectangle secondRectangle = new Rectangle(WIDTH_FIRST, DIFFERENT_LENGTH, COLOR_SECOND);
+
+        Assert.assertNotEquals("Test failed with first hash "
+                + firstRectangle.hashCode()
+                + " and second hash " + secondRectangle.hashCode()
+                + " and equals " + firstRectangle.equals(secondRectangle), firstRectangle, secondRectangle);
+    }
+
+    @Test
+    public void equalsOfRectangleWidthNotOk() {
+        Rectangle firstRectangle = new Rectangle(WIDTH_FIRST, LENGTH_FIRST, COLOR_FIRST);
+        Rectangle secondRectangle = new Rectangle(DIFFERENT_WIDTH, DIFFERENT_LENGTH, COLOR_SECOND);
+
+        Assert.assertNotEquals("Test failed with first hash "
+                + firstRectangle.hashCode()
+                + " and second hash " + secondRectangle.hashCode()
+                + " and equals " + firstRectangle.equals(secondRectangle), firstRectangle, secondRectangle);
+    }
+
+    @Test
+    public void equalsOfRectangleColorNotOk() {
+        Rectangle firstRectangle = new Rectangle(WIDTH_FIRST, LENGTH_FIRST, COLOR_FIRST);
+        Rectangle secondRectangle = new Rectangle(WIDTH_FIRST, DIFFERENT_LENGTH, DIFFERENT_COLOR);
 
         Assert.assertNotEquals("Test failed with first hash "
                 + firstRectangle.hashCode()
