@@ -57,4 +57,21 @@ public class RectangleTest {
                         + " and second hash " + secondRectangle.hashCode(),
                 firstRectangle.hashCode(), secondRectangle.hashCode());
     }
+
+    @Test
+    public void equalsOfRectangleWithSubclassNotOK() {
+        class Square extends Rectangle {
+            public Square(Integer width, Integer length, String color) {
+                super(width, length, color);
+            }
+        }
+
+        Rectangle rectangle = new Rectangle(WIDTH_FIRST, LENGTH_FIRST, COLOR_FIRST);
+        Rectangle square = new Square(WIDTH_SECOND, LENGTH_SECOND, COLOR_SECOND);
+
+        Assert.assertNotEquals("Test failed with first hash "
+                + rectangle.hashCode()
+                + " and second hash " + square.hashCode()
+                + " and equals " + rectangle.equals(square), rectangle, square);
+    }
 }

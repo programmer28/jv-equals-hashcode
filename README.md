@@ -1,5 +1,5 @@
 # jv-equals-hashcode
 
-Дан класс Rectangle. Переопределите в нем методы equals() и hashCode() так, чтобы equals()
-сравнивал экземпляры Rectangle по содержимому полей color, width и length, а hashCode() был бы согласованным с
-реализацией equals().
+Given class  — Rectangle. Override it's methods `equals()` and `hashCode()` so, 
+`equals()` compares Rectangle objects by it's fields:
+color, width and length. Also make sure that `hashCode()` follows the contract between equals and hashcode.
